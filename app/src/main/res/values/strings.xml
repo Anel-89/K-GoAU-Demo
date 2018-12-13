@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Know&amp;Go Australia</string>
+    <string name="title_detail_answer">Good to Know: </string>
+    <string name="next_bttn">Next</string>
+    
+    <string name="q1">In which state is Australia\'s highest waterfall?</string>
+    <string name="q2">What is Australia’s highest mainland mountain?</string>
+    <string name="q3">How many people out of total Australian population speak indigenous language?</string>
+    <string name="q4">Which of the following is Australia\'s longest river?</string>
+    <string name="q5">Where on the mainland is Australia\'s lowest point?</string>
+    <string name="q6">Approximately what percentage of mainland Australia is covered with desert?</string>
+    <string name="q7">By land mass, Australia is the _______ largest country in the world.</string>
+    <string name="q8">What is the biggest state in Australia?</string>
+    <string name="q9">What is the smallest state in Australia?</string>
+    <string name="q10">Which animal is on the Western Australia flag?</string>
+    <string name="q11">Australia has the world’s largest sand island. What is it called?</string>
+    <string name="q12">What is the name of this lake?</string>
+    <string name="q13">You are on Mt Tibrogargan, what state are you in?</string>
+
+    <string name="q1_choice1">"New South Wales"</string>
+    <string name="q1_choice2">"Queensland"</string>
+    <string name="q1_choice3">"Tasmania"</string>
+    <string name="q1_choice4">"Victoria"</string>
+
+    <string name="q2_choice1">"Mount Kosciuszko"</string>
+    <string name="q2_choice2">"Mount Solitary"</string>
+    <string name="q2_choice3">"Mount Bogong"</string>
+    <string name="q2_choice4">"Mount Feathertop"</string>
+
+    <string name="q3_choice1">"15%"</string>
+    <string name="q3_choice2">"Less than 1%"</string>
+    <string name="q3_choice3">"3%"</string>
+    <string name="q3_choice4">"Every 2nd person in Australia"</string>
+
+    <string name="q4_choice1">"Lachlan River"</string>
+    <string name="q4_choice2">"Murrumbidgee River"</string>
+    <string name="q4_choice3">"Darling River"</string>
+    <string name="q4_choice4">"Mighty Murray"</string>
+
+    <string name="q5_choice1">Lake Eyre</string>
+    <string name="q5_choice2">Cape Byron</string>
+    <string name="q5_choice3">Steep Point</string>
+    <string name="q5_choice4">Cape York Peninsula</string>
+
+    <string name="q1_fact">Wallaman Falls is within the Wet Tropics World Heritage Area.
+Explore rainforest and enjoy spectacular gorge views on one of the short walking tracks near the falls.</string>
+    <string name="q2_fact">Called by natives the “Kozzy” mountain, Mt Kosciuszko is the coldest part of Australia, and is covered in snow for months between June and October.
+This place includes the only skiing areas in Australia, and is well-developed for winter sports.</string>
+    <string name="q3_fact">Having lived in Australia for at least 50,000 years, Indigenous Australians have one of the world\'s oldest living cultures.
+Many English words derive from Aboriginal languages, for example: barramundi, dingo, kangaroo, koala and wombat.</string>
+    <string name="q4_fact">The Murray is the third longest navigable river in the world! It comes after the Amazon and the Nile. How amazing is that?</string>
+    <string name="q5_fact"></string>
+
+
+</resources>
