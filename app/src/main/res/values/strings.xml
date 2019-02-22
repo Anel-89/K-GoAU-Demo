@@ -3,6 +3,7 @@
     <string name="title_detail_answer">Good to Know: </string>
     <string name="next_bttn">Next</string>
     <string name="start_button">Start Quiz</string>
+    <string name="conf_next_bttn">Confirm</string>
 
     <string name="q1">In which state is Australia\'s highest waterfall?</string>
     <string name="q2">What is Australia’s highest mainland mountain?</string>
@@ -17,6 +18,7 @@
     <string name="q11">Australia has the world’s largest sand island. What is it called?</string>
     <string name="q12">What is the name of this lake?</string>
     <string name="q13">You are on Mt Tibrogargan, what state are you in?</string>
+	<string name="q14">Which river runs through Alice Springs?</string>
 
     <string name="q1_choice1">"New South Wales"</string>
     <string name="q1_choice2">"Queensland"</string>
@@ -50,7 +52,10 @@ This place includes the only skiing areas in Australia, and is well-developed fo
     <string name="q3_fact">Having lived in Australia for at least 50,000 years, Indigenous Australians have one of the world\'s oldest living cultures.
 Many English words derive from Aboriginal languages, for example: barramundi, dingo, kangaroo, koala and wombat.</string>
     <string name="q4_fact">The Murray is the third longest navigable river in the world! It comes after the Amazon and the Nile. How amazing is that?</string>
-    <string name="q5_fact"></string>
+    <string name="q5_fact">Lake Eyre (Kati Thanda) is a large, usually dry salt pan in the South Australian Outback
+         and is considered to be the lowest point of the country (15m below sea level).
+        It is the world\'s greatest salt lake and Australia\'s largest inland lake which comprises 400 million tonnes of salt.
+       When it fills with water, it becomes a major tourist attraction and a heaven for birdlife.</string>
 
 
 </resources>

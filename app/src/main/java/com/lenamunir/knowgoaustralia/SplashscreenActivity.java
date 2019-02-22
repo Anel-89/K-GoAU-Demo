@@ -15,7 +15,7 @@ public class SplashscreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EasySplashScreen config = new EasySplashScreen(SplashscreenActivity.this)
                 .withFullScreen()
-                .withSplashTimeOut(2000)
+                .withSplashTimeOut(1000)
                 .withTargetActivity(Starting_Activity.class)
                 .withBeforeLogoText("Know & Go AUSTRALIA Quiz")
                 .withLogo(R.drawable.aus_desert);
