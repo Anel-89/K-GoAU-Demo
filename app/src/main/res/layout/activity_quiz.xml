@@ -16,6 +16,14 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="@string/score"
+                android:textSize="20sp" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -66,22 +74,26 @@
                 <Button
                     android:id="@+id/bttn_ans_a"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:theme="@style/PrimaryFlatButton"/>
 
                 <Button
                     android:id="@+id/bttn_ans_b"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:theme="@style/PrimaryFlatButton"/>/>
 
                 <Button
                     android:id="@+id/bttn_ans_c"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:theme="@style/PrimaryFlatButton"/>/>
 
                 <Button
                     android:id="@+id/bttn_ans_d"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:theme="@style/PrimaryFlatButton"/>/>
 
             </LinearLayout>
 
@@ -94,8 +106,7 @@
                 android:paddingEnd="16dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:paddingStart="16dp"
-                android:visibility="gone">
+                android:paddingStart="16dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -125,7 +136,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:text="@string/next_bttn" />
+                android:text="@string/next_bttn"
+                android:theme="@style/PrimaryFlatButton"/>/>
 
         </LinearLayout>
 

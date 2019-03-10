@@ -2,8 +2,10 @@
     <string name="app_name">Know&amp;Go Australia</string>
     <string name="title_detail_answer">Good to Know: </string>
     <string name="next_bttn">Next</string>
+    <string name="finish_bttn">Finish </string>
     <string name="start_button">Start Quiz</string>
     <string name="conf_next_bttn">Confirm</string>
+    <string name="score">Score: 0</string>
 
     <string name="q1">In which state is Australia\'s highest waterfall?</string>
     <string name="q2">What is Australia’s highest mainland mountain?</string>
