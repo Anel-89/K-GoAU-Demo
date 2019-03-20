@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -14,6 +14,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top|center"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="@string/score"
+                android:textSize="20sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -42,7 +50,8 @@
                 android:layout_gravity="center_horizontal"
                 android:paddingBottom="8dp"
                 android:scaleType="fitCenter"
-                android:visibility="visible" />
+                android:visibility="visible"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:id="@+id/question_text"
@@ -66,22 +75,30 @@
                 <Button
                     android:id="@+id/bttn_ans_a"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:theme="@style/PrimaryFlatButton"/>
 
                 <Button
                     android:id="@+id/bttn_ans_b"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:theme="@style/PrimaryFlatButton"/>
 
                 <Button
                     android:id="@+id/bttn_ans_c"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:theme="@style/PrimaryFlatButton"/>
 
                 <Button
                     android:id="@+id/bttn_ans_d"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:theme="@style/PrimaryFlatButton"/>
 
             </LinearLayout>
 
@@ -94,8 +111,7 @@
                 android:paddingEnd="16dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:paddingStart="16dp"
-                android:visibility="gone">
+                android:paddingStart="16dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -117,18 +133,29 @@
                     android:textSize="16sp"
                     tools:text="some text" />
 
-
             </LinearLayout>
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:numStars="5"
+                android:rating="0"
+                android:stepSize="1"
+                />
+
 
             <Button
                 android:id="@+id/next_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:text="@string/next_bttn" />
-
+                android:text="@string/next_bttn"
+                android:theme="@style/PrimaryFlatButton"
+                />
         </LinearLayout>
 
 
     </ScrollView>
-</FrameLayout>
+</RelativeLayout>

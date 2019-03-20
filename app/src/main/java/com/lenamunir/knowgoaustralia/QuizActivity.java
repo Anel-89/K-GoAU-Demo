@@ -1,11 +1,13 @@
 package com.lenamunir.knowgoaustralia;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +29,7 @@ public class QuizActivity extends AppCompatActivity{
     private LinearLayout mDetailedAnswerView;
     private TextView mFact;
     private TextView mScoreTextView;
+    private RatingBar mRatingBar;
 
 
     private List<QuestionBank> mQuestionList;
@@ -55,6 +58,7 @@ public class QuizActivity extends AppCompatActivity{
         mDetailedAnswerView = findViewById(R.id.detail_answer);
         mFact = findViewById(R.id.answer_detail_view);
         mScoreTextView = findViewById(R.id.score);
+        mRatingBar = findViewById(R.id.ratingBar);
 
 
 
@@ -78,19 +82,22 @@ public class QuizActivity extends AppCompatActivity{
         mNextButton.setEnabled(false);
 
 
+
         View.OnClickListener answerChecker = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (view.getTag() != null && view.getTag().equals(mCorrectAnswer)) {
-                    Toast.makeText(QuizActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+                    view.setBackgroundColor(getResources().getColor(R.color.colorButtonCorrectAns));
                     mDetailedAnswerView.setVisibility(View.VISIBLE);
+                    mRatingBar.setVisibility(View.VISIBLE);
                     mNextButton.setEnabled(true);
                     mScore++;
                     mScoreTextView.setText("Score: " + mScore);
 
 
                 } else {
-                    Toast.makeText(QuizActivity.this, "Wrong", Toast.LENGTH_SHORT).show();
+                   view.setBackgroundColor(getResources().getColor(R.color.colorButtonWrongAns));
+
                     }
             }
         };
@@ -98,6 +105,13 @@ public class QuizActivity extends AppCompatActivity{
         mChoice2.setOnClickListener(answerChecker);
         mChoice3.setOnClickListener(answerChecker);
         mChoice4.setOnClickListener(answerChecker);
+
+        mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+
+            }
+        });
 
 
 
@@ -108,6 +122,11 @@ public class QuizActivity extends AppCompatActivity{
 
             if (mQuestCount < mTotalQuestions){
             mCurrentQuestion = mQuestionList.get(mQuestCount);
+
+            mChoice1.setBackgroundColor(Color.TRANSPARENT); // try like this to bring back to default color
+            mChoice2.setBackgroundColor(getResources().getColor(R.color.colorSecondary));
+            mChoice3.setBackgroundColor(getResources().getColor(R.color.colorSecondary));
+            mChoice4.setBackgroundColor(getResources().getColor(R.color.colorSecondary));
 
             mQuestionText.setText(mCurrentQuestion.getQText());
             mQuestionImage.setImageResource(mCurrentQuestion.getQImg());
@@ -128,6 +147,8 @@ public class QuizActivity extends AppCompatActivity{
             mIsAnswered = false;
             mDetailedAnswerView.setVisibility(View.GONE);
             mNextButton.setEnabled(false);
+            mRatingBar.setRating(0);
+            mRatingBar.setVisibility(View.GONE);
 
 
         }else{

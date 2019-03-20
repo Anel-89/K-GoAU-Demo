@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -75,25 +75,29 @@
                     android:id="@+id/bttn_ans_a"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:theme="@style/PrimaryFlatButton"/>
+                    style="@style/AnswersButton"
+                    android:theme="@style/PrimaryFlatButton" />
 
                 <Button
                     android:id="@+id/bttn_ans_b"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:theme="@style/PrimaryFlatButton"/>/>
+                    style="@style/AnswersButton"
+                    android:theme="@style/PrimaryFlatButton"/>
 
                 <Button
                     android:id="@+id/bttn_ans_c"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:theme="@style/PrimaryFlatButton"/>/>
+                    style="@style/AnswersButton"
+                    android:theme="@style/PrimaryFlatButton"/>
 
                 <Button
                     android:id="@+id/bttn_ans_d"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:theme="@style/PrimaryFlatButton"/>/>
+                    style="@style/AnswersButton"
+                    android:theme="@style/PrimaryFlatButton"/>
 
             </LinearLayout>
 
@@ -128,8 +132,18 @@
                     android:textSize="16sp"
                     tools:text="some text" />
 
+                </LinearLayout>
 
-            </LinearLayout>
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:numStars="5"
+                android:rating="0"
+                android:stepSize="1"
+              />
+
 
             <Button
                 android:id="@+id/next_button"
@@ -137,10 +151,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:text="@string/next_bttn"
-                android:theme="@style/PrimaryFlatButton"/>/>
-
+                android:background="@color/colorPrimaryLight"
+                android:theme="@style/PrimaryFlatButton"
+                />
         </LinearLayout>
 
 
     </ScrollView>
-</FrameLayout>
+</RelativeLayout>
