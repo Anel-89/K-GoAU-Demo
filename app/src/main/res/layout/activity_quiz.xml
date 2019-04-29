@@ -62,6 +62,16 @@
                 android:textSize="20sp"
                 tools:text="Question Text Goes Here" />
 
+            <TextView
+                android:id="@+id/count_down"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="20sp"
+                tools:text="4" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

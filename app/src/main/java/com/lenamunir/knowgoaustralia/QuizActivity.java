@@ -1,6 +1,7 @@
 package com.lenamunir.knowgoaustralia;
 
 import android.graphics.Color;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +16,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class QuizActivity extends AppCompatActivity{
+public class QuizActivity extends AppCompatActivity {
 
     private TextView mQuestionText;
     private ImageView mQuestionImage;
@@ -29,6 +30,7 @@ public class QuizActivity extends AppCompatActivity{
     private LinearLayout mDetailedAnswerView;
     private TextView mFact;
     private TextView mScoreTextView;
+    private TextView mCountView;
     private RatingBar mRatingBar;
 
 
@@ -39,14 +41,20 @@ public class QuizActivity extends AppCompatActivity{
     private int mScore;
     private boolean mIsAnswered;
     private int mCorrectAnswer;
+    private View myAnswerView;
+    private static int TIME_OUT = 10;
+    private int countDown;
+    private Handler mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mHandler = new Handler();
         setContentView(R.layout.activity_quiz);
 
         mQuestionText = findViewById(R.id.question_text);
         mQuestionCount = findViewById(R.id.question_count);
+        mCountView = findViewById(R.id.count_down);
 
         mQuestionImage = findViewById(R.id.question_image);
 
@@ -59,7 +67,6 @@ public class QuizActivity extends AppCompatActivity{
         mFact = findViewById(R.id.answer_detail_view);
         mScoreTextView = findViewById(R.id.score);
         mRatingBar = findViewById(R.id.ratingBar);
-
 
 
         QuizDbHelper quizDbHelper = new QuizDbHelper(this);
@@ -77,34 +84,9 @@ public class QuizActivity extends AppCompatActivity{
             public void onClick(View view) {
 
                 updateQuestion();
-                }
+            }
         });
         mNextButton.setEnabled(false);
-
-
-
-        View.OnClickListener answerChecker = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (view.getTag() != null && view.getTag().equals(mCorrectAnswer)) {
-                    view.setBackgroundColor(getResources().getColor(R.color.colorButtonCorrectAns));
-                    mDetailedAnswerView.setVisibility(View.VISIBLE);
-                    mRatingBar.setVisibility(View.VISIBLE);
-                    mNextButton.setEnabled(true);
-                    mScore++;
-                    mScoreTextView.setText("Score: " + mScore);
-
-
-                } else {
-                   view.setBackgroundColor(getResources().getColor(R.color.colorButtonWrongAns));
-
-                    }
-            }
-        };
-        mChoice1.setOnClickListener(answerChecker);
-        mChoice2.setOnClickListener(answerChecker);
-        mChoice3.setOnClickListener(answerChecker);
-        mChoice4.setOnClickListener(answerChecker);
 
         mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
@@ -114,21 +96,120 @@ public class QuizActivity extends AppCompatActivity{
         });
 
 
+    }// onCreate() finishes here
 
-        }// onCreate() finishes here
+    private final Runnable timerRunnable = new Runnable() {
+        @Override
+        public void run() {
+            countDown--;
+            onTimerUpdate();
+            if (countDown != 0) {
+                startTimer();
+            } else {
+                onAnswerTimedOut();
+            }
+        }
+    };
+    View.OnClickListener answerChecker = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if (myAnswerView != null) {
+                // previous answer
+                if (myAnswerView == view) {
+                    // clicked on  same answer unselect it
+                    myAnswerView = null;
+                    view.setBackgroundColor(getResources().getColor(R.color.colorButtonDefault));
+                } else {
+                    // cliked on new answer
+                    myAnswerView.setBackgroundColor(getResources().getColor(R.color.colorButtonDefault));
+                    myAnswerView = view;
+                    myAnswerView.setBackgroundColor(getResources().getColor(R.color.colorButtonSelectedAns));
+                }
+            } else {
+                // no previous answer
+                myAnswerView = view;
+                myAnswerView.setBackgroundColor(getResources().getColor(R.color.colorButtonSelectedAns));
+            }
 
+
+        }
+    };
+
+    private void enableAnswering() {
+        mChoice1.setOnClickListener(answerChecker);
+        mChoice2.setOnClickListener(answerChecker);
+        mChoice3.setOnClickListener(answerChecker);
+        mChoice4.setOnClickListener(answerChecker);
+    }
+
+    private void disableAnswering() {
+        mChoice1.setOnClickListener(null);
+        mChoice2.setOnClickListener(null);
+        mChoice3.setOnClickListener(null);
+        mChoice4.setOnClickListener(null);
+
+    }
+
+    private void onAnswerTimedOut() {
+        disableAnswering();
+        checkAnswer();
+    }
+
+    private void startTimer() {
+        mHandler.postDelayed(timerRunnable, 1000);
+    }
+
+    private void stopTimer() {
+        mHandler.removeCallbacks(timerRunnable);
+    }
+
+    private void onTimerUpdate() {
+        mCountView.setText("" + countDown);
+    }
+
+    private void checkAnswer() {
+        if (myAnswerView != null) {
+            // has answer
+            if (myAnswerView.getTag() != null && myAnswerView.getTag().equals(mCorrectAnswer)) {
+                //correct answer
+                myAnswerView.setBackgroundColor(getResources().getColor(R.color.colorButtonCorrectAns));
+                mDetailedAnswerView.setVisibility(View.VISIBLE);
+                mRatingBar.setVisibility(View.VISIBLE);
+                mNextButton.setEnabled(true);
+                mScore++;
+                mScoreTextView.setText("Score: " + mScore);
+            } else {
+                // wrong answer
+                myAnswerView.setBackgroundColor(getResources().getColor(R.color.colorButtonWrongAns));
+                mDetailedAnswerView.setVisibility(View.VISIBLE);
+                mRatingBar.setVisibility(View.VISIBLE);
+                mNextButton.setEnabled(true);
+
+            }
+        } else {
+            //no answers selected
+            mDetailedAnswerView.setVisibility(View.VISIBLE);
+            mRatingBar.setVisibility(View.VISIBLE);
+            mNextButton.setEnabled(true);
+        }
+
+
+    }
 
     private void updateQuestion() {
-
-            if (mQuestCount < mTotalQuestions){
+        myAnswerView = null;
+        countDown = TIME_OUT;
+        if (mQuestCount < mTotalQuestions) {
             mCurrentQuestion = mQuestionList.get(mQuestCount);
 
-            mChoice1.setBackgroundColor(Color.TRANSPARENT); // try like this to bring back to default color
+            mChoice1.setBackgroundColor(getResources().getColor(R.color.colorSecondary)); // try like this to bring back to default color
             mChoice2.setBackgroundColor(getResources().getColor(R.color.colorSecondary));
             mChoice3.setBackgroundColor(getResources().getColor(R.color.colorSecondary));
             mChoice4.setBackgroundColor(getResources().getColor(R.color.colorSecondary));
 
-            mQuestionText.setText(mCurrentQuestion.getQText());
+            int qText = mCurrentQuestion.getQText();
+            CharSequence text = getText(qText);
+            mQuestionText.setText(text);
             mQuestionImage.setImageResource(mCurrentQuestion.getQImg());
             mChoice1.setText(mCurrentQuestion.getChoice1());
             mChoice2.setText(mCurrentQuestion.getChoice2());
@@ -150,16 +231,19 @@ public class QuizActivity extends AppCompatActivity{
             mRatingBar.setRating(0);
             mRatingBar.setVisibility(View.GONE);
 
+            onTimerUpdate();
+            startTimer();
+            enableAnswering();
 
-        }else{
-                if (mQuestCount == mTotalQuestions){
-                    mNextButton.setText(R.string.finish_bttn);
-                }
-          finishQuiz();
+        } else {
+            if (mQuestCount == mTotalQuestions) {
+                mNextButton.setText(R.string.finish_bttn);
+            }
+            finishQuiz();
         }
     }
 
-   private void finishQuiz(){
+    private void finishQuiz() {
         finish();
     }
 }

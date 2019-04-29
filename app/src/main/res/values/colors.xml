@@ -8,6 +8,7 @@
 
     <color name="colorButtonWrongAns">#F44336</color>
     <color name="colorButtonCorrectAns">#1DE9B6</color>
+    <color name="colorButtonSelectedAns">#0087FF</color>
     <color name="colorButtonDefault">#FFB300</color>
     <color name="colorText">#000000</color>
 
