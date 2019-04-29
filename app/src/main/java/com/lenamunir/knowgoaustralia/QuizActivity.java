@@ -123,10 +123,11 @@ public class QuizActivity extends AppCompatActivity{
             if (mQuestCount < mTotalQuestions){
             mCurrentQuestion = mQuestionList.get(mQuestCount);
 
-            mChoice1.setBackgroundColor(Color.TRANSPARENT); // try like this to bring back to default color
+            mChoice1.setBackgroundColor(getResources().getColor(R.color.colorSecondary)); // try TRANSPARENT to bring back to default color
             mChoice2.setBackgroundColor(getResources().getColor(R.color.colorSecondary));
             mChoice3.setBackgroundColor(getResources().getColor(R.color.colorSecondary));
             mChoice4.setBackgroundColor(getResources().getColor(R.color.colorSecondary));
+
 
             mQuestionText.setText(mCurrentQuestion.getQText());
             mQuestionImage.setImageResource(mCurrentQuestion.getQImg());

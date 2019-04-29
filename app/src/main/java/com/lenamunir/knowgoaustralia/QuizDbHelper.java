@@ -79,6 +79,26 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 R.string.q5_choice1,
                 R.string.q5_fact);
         addQuestionsInDb(q05);
+        QuestionBank q06 = new QuestionBank(R.string.q6, R.drawable.aus_desert,
+                R.string.q6_choice1,R.string.q6_choice2,R.string.q6_choice3,R.string.q6_choice4,
+                R.string.q6_choice3,
+                R.string.q6_fact);
+        addQuestionsInDb(q06);
+        QuestionBank q07 = new QuestionBank(R.string.q7, R.drawable.aus_desert,
+                R.string.q7_choice1,R.string.q7_choice2,R.string.q7_choice3,R.string.q7_choice4,
+                R.string.q7_choice4,
+                R.string.q7_fact);
+        addQuestionsInDb(q07);
+        QuestionBank q08 = new QuestionBank(R.string.q8, R.drawable.aus_desert,
+                R.string.q8_choice1,R.string.q8_choice2,R.string.q8_choice3,R.string.q8_choice4,
+                R.string.q8_choice3,
+                R.string.q8_fact);
+        addQuestionsInDb(q08);
+        QuestionBank q09 = new QuestionBank(R.string.q9, R.drawable.tasmania_flag,
+                R.string.q9_choice1,R.string.q9_choice2,R.string.q9_choice3,R.string.q9_choice4,
+                R.string.q9_choice2,
+                R.string.q9_fact);
+        addQuestionsInDb(q09);
     }
     private void addQuestionsInDb(QuestionBank questionBank){
         ContentValues cv = new ContentValues();

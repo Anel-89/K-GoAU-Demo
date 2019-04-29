@@ -7,6 +7,7 @@
     <string name="conf_next_bttn">Confirm</string>
     <string name="score">Score: 0</string>
 
+
     <string name="q1">In which state is Australia\'s highest waterfall?</string>
     <string name="q2">What is Australia’s highest mainland mountain?</string>
     <string name="q3">How many people out of total Australian population speak indigenous language?</string>
@@ -47,6 +48,26 @@
     <string name="q5_choice3">Steep Point</string>
     <string name="q5_choice4">Cape York Peninsula</string>
 
+    <string name="q6_choice1">50%</string>
+    <string name="q6_choice2">23%</string>
+    <string name="q6_choice3">18%</string>
+    <string name="q6_choice4">87%</string>
+
+    <string name="q7_choice1">third</string>
+    <string name="q7_choice2">fifth</string>
+    <string name="q7_choice3">fourth</string>
+    <string name="q7_choice4">sixth</string>
+
+    <string name="q8_choice1">Tasmania</string>
+    <string name="q8_choice2">Victoria</string>
+    <string name="q8_choice3">Western Australia</string>
+    <string name="q8_choice4">South Australia</string>
+
+    <string name="q9_choice1">New South Wales</string>
+    <string name="q9_choice2">Tasmania</string>
+    <string name="q9_choice3">South Australia</string>
+    <string name="q9_choice4">Western Australia</string>
+
     <string name="q1_fact">Wallaman Falls is within the Wet Tropics World Heritage Area.
 Explore rainforest and enjoy spectacular gorge views on one of the short walking tracks near the falls.</string>
     <string name="q2_fact">Called by natives the “Kozzy” mountain, Mt Kosciuszko is the coldest part of Australia, and is covered in snow for months between June and October.
@@ -58,6 +79,15 @@ Many English words derive from Aboriginal languages, for example: barramundi, di
          and is considered to be the lowest point of the country (15m below sea level).
         It is the world\'s greatest salt lake and Australia\'s largest inland lake which comprises 400 million tonnes of salt.
        When it fills with water, it becomes a major tourist attraction and a heaven for birdlife.</string>
+    <string name="q6_fact">Total 10 Australian deserts make up about 18% of this continent,
+        but a full 35% of Australia receives so little rainfall, it is classified as desert.
+That makes Australia the driest inhabited continent on Earth.</string>
+    <string name="q7_fact">Many don’t realize that Australia is really big, in-fact its about the same size as continental USA.
+        For example, traveling from Sydney to Perth (East Coast to West Coast) is about the same as traveling from New York to Los Angeles. </string>
+    <string name="q8_fact">The size of Western Australia’s territory is so impressive, that if it were to be a country in its own right,
+        it would be in the world’s Top 10 for size!</string>
+    <string name="q9_fact">The island state of Tasmania, separated from the Australian mainland by Bass Strait,
+        is similar in size to the Republic of Ireland or Sri Lanka.</string>
 
 
 </resources>
